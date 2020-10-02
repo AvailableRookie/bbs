@@ -1,3 +1,3 @@
 # bbs
 
-##  环境要求： IDEA   Maven 
+##  环境要求： IDEA   Maven  Tomcat
