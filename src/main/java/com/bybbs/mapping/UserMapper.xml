@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bybbs.mapper.UserMapper">
+
+  <resultMap id="BaseResultMap" type="com.bybbs.domain.User">
+    <id column="user_id" jdbcType="INTEGER" property="user_id" />
+    <result column="user_pswd" jdbcType="VARCHAR" property="user_pswd" />
+    <result column="user_name" jdbcType="VARCHAR" property="user_name" />
+    <result column="user_email" jdbcType="VARCHAR" property="user_email" />
+    <result column="user_status_code" jdbcType="VARCHAR" property="user_status_code" />
+    <result column="user_status" jdbcType="INTEGER" property="user_status" />
+    <result column="user_phone" jdbcType="VARCHAR" property="user_phone" />
+    <result column="user_ex" jdbcType="VARCHAR" property="user_ex" />
+    <result column="user_sex" jdbcType="INTEGER" property="user_sex" />
+    <result column="user_blog" jdbcType="VARCHAR" property="user_blog" />
+    <result column="user_nickname" jdbcType="VARCHAR" property="user_nickname" />
+    <result column="user_img" jdbcType="VARCHAR" property="user_img" />
+    <result column="user_show_num" jdbcType="INTEGER" property="user_show_num" />
+    <result column="user_fans_num" jdbcType="INTEGER" property="user_fans_num" />
+    <result column="user_concern_num" jdbcType="INTEGER" property="user_concern_num" />
+    <result column="user_birthday" jdbcType="VARCHAR" property="user_birthday" />
+    <result column="user_register_time" jdbcType="TIMESTAMP" property="user_register_time" />
+    <result column="user_login_time" jdbcType="TIMESTAMP" property="user_login_time" />
+
+  </resultMap>
+
+  <select id="login" parameterType="User" resultMap="BaseResultMap">
+    select * from user where user_name = #{loginname}
+  </select>
+
+  <insert id="register" parameterType="User">
+    insert into user(user_pswd,user_name,user_email,user_status_code,user_status,user_phone,user_ex,user_sex,user_blog,
+    user_nickname,user_img,user_show_num,user_fans_num,user_concern_num,user_birthday,user_register_time,user_login_time) values(
+    #{user_pswd},#{user_name},#{user_email},#{user_status_code},#{user_status},#{user_phone},#{user_ex},#{user_sex},
+    #{user_blog},#{user_nickname},#{user_img},#{user_show_num},#{user_fans_num},#{user_concern_num},#{user_birthday},
+    #{user_register_time},#{user_login_time})
+  </insert>
+
+  <select id="findAll" resultMap="BaseResultMap">
+    select * from user;
+  </select>
+</mapper>
